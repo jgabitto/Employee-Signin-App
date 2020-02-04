@@ -1,0 +1,62 @@
+<div>
+    <form id="registerForm">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th id="dateInH" scope="col">Date In</th>
+                <th id="dateOutH" scope="col">Date Out</th>
+                <th scope="col">Time In</th>
+                <th scope="col">Time Out</th>
+                <th scope="col">Hours worked</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="firstRow" class="table-active">
+                <td class="col"><input id="date" class="form-control" name="date" type="date"></td class="col">
+                <td class="col-2"><input id="firstName" class="form-control" name="fName" type="text"></td>
+                <td class="col-2"><input id="lastName" class="form-control" name="lName" type="text"></td>
+                <td class="col-2"><input id="email" class="form-control " name="email" type="email"></td>
+                <td class="col" id="dateInI"><input id="dateIn" class="form-control" name="dateIn" type="date" autocomplete="off"></td>
+                <td class="col" id="dateOutI"><input id="dateOut" class="form-control" name="dateOut" type="date" autocomplete="off"></td>
+                <td class="col">
+                    <div class="input-group">
+                        <input id="timeIn" class="form-control" name="timeIn" type="time"  autocomplete="off" required>
+                        {{!-- <input id="timeInFirefox" class="form-control hideBtn" name="timeIn" type="time" readonly="readonly" autocomplete="off" required> --}}
+                    </div>
+                </td>
+                <td class="col">
+                    <div class="input-group">
+                        <input id="timeOut" class="form-control" name="timeOut" type="time" autocomplete="off" required>
+                        {{!-- <input id="timeOutFirefox" class="form-control hideBtn" name="timeOut" type="time" readonly="readonly" autocomplete="off" required> --}}
+                    </div>
+                </td>
+                <td class="col"><input id="hoursWorked" class="form-control" name="hoursWorked" type="text" readonly="readonly"></td>
+            </tr>
+            <tr id="thirdRow" class="hideBtn table-active">
+                <th scope="row">1</th>
+                <td id="1FF"></td>
+                <td id="2FF"></td>
+                <td id="3FF"></td>
+                <td id="4FF"></td>
+                <td id="5FF"></td>
+                <td id="6FF"></td>
+                <td id="7FF"></td>
+                <td id="8FF"></td>
+                <td id="9FF"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="submit" class="btn btn-primary hideBtn">Submit</button>
+    <button id="edit" class="btn btn-primary">Edit</button>
+    </form>
+    <div id="message"></div>
+</div>
+
+
+
+
+

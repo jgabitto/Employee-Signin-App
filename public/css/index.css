@@ -1,0 +1,33 @@
+.jumbotron {
+    margin-top: 50px;
+    margin-right: 300px;
+    margin-left: 300px;
+}
+
+.hideBtn {
+    display: none;
+}
+
+.unhideBtn {
+    display: inline;
+}
+
+/* .input-group-append .day:hover {
+    background-color: rgb(240, 173, 78);
+}
+
+.input-group-append .night:hover {
+    background-color: rgb(50, 118, 177);
+} */
+
+#message {
+    color: red;
+}
+
+#firstName, #lastName, #email {
+    width: 150px;
+}
+
+#date, #dateIn, #dateOut {
+    width: 185px;
+}
