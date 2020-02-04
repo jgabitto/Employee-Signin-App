@@ -21,11 +21,8 @@ router.get('/register', (req, res) => {
 router.post('/register', async (req, res) => {
     const employee = new Employee(req.body);
 
-    console.log(req.body);
-
     try {
         const token = await employee.generateAuthToken();
-        console.log(token);
 
         res.cookie('auth_token', token);
 

@@ -42,11 +42,6 @@ registerForm.addEventListener('submit', async (e) => {
             headers: myHeaders
         });
         const json = await res.json();
-        console.log(json);
-
-        const message = myHeaders.get('authorization');
-
-        alert(message);
     
         if (json.status === 'Success') {
             window.location.href = '/home';

@@ -58,7 +58,7 @@ editBtn.addEventListener('click', async (e) => {
     // let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
 
     submitBtn.classList.remove('hideBtn');
-    thirdRow.classList.add('hideBtn');
+    secondRow.classList.add('hideBtn');
     message.classList.add('hideBtn');
         
     if (firstRow.classList.contains('hideBtn'))
@@ -153,7 +153,7 @@ submitBtn.addEventListener('click', async (e) => {
         
         if (json.status === 'Success') {
                 firstRow.classList.add('hideBtn');
-                thirdRow.classList.remove('hideBtn');
+                secondRow.classList.remove('hideBtn');
 
                 resultsDate.innerHTML = json.data.date;
                 resultsFName.innerHTML = json.data.firstName;
