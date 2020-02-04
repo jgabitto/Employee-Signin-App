@@ -31,11 +31,13 @@
 // };
 
 const mongoose = require('mongoose');
-let url = 'mongodb://<dbuser>:<dbpassword>@ds061751.mlab.com:61751/heroku_brtwtffk' || 'mongodb://127.0.0.1:27017/employee-sign-in';
+let mLabUrl = process.env.MONGODB_URI;
+let url = mLabUrl || 'mongodb://127.0.0.1:27017/employee-sign-in';
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    dbName: 'heroku_brtwtffk' || 'employee-sign-in'
 });
