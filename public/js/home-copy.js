@@ -37,9 +37,9 @@ function checkBrowser() {
     let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
 
     if (firefoxAgent) {
-        nav.style.width = "1490.0px";
+        navbar.style.width = "1490.0px";
     } else {
-        nav.style.width = "1540.68px";
+        navbar.style.width = "1540.68px";
     }
 }
 
@@ -152,18 +152,19 @@ submitBtn.addEventListener('click', async (e) => {
         message.innerHTML = json.message;
         
         if (json.status === 'Success') {
-                firstRow.classList.add('hideBtn');
-                secondRow.classList.remove('hideBtn');
+            navbar.style.width = "1280px";
+            firstRow.classList.add('hideBtn');
+            secondRow.classList.remove('hideBtn');
 
-                resultsDate.innerHTML = json.data.date;
-                resultsFName.innerHTML = json.data.firstName;
-                resultsLName.innerHTML = json.data.lastName;
-                resultsEmail.innerHTML = json.data.email;
-                resultsDateIn.innerHTML = json.data.dateIn;
-                resultsDateOut.innerHTML = json.data.dateIn;
-                resultsTimeIn.innerHTML = json.data.timeIn;
-                resultsTimeOut.innerHTML = json.data.timeOut;
-                resultsHoursWorked.innerHTML = json.data.hoursWorked;
+            resultsDate.innerHTML = json.data.date;
+            resultsFName.innerHTML = json.data.firstName;
+            resultsLName.innerHTML = json.data.lastName;
+            resultsEmail.innerHTML = json.data.email;
+            resultsDateIn.innerHTML = json.data.dateIn;
+            resultsDateOut.innerHTML = json.data.dateIn;
+            resultsTimeIn.innerHTML = json.data.timeIn;
+            resultsTimeOut.innerHTML = json.data.timeOut;
+            resultsHoursWorked.innerHTML = json.data.hoursWorked;
         }
     } catch (e) {
         message.classList.remove('hideBtn');
