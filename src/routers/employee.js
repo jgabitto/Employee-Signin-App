@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const Employee = require('../models/employee');
 const Record = require('../models/record');
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
     res.render('index');
 })
 
-router.get('/home', (req, res) => {
+router.get('/home', async (req, res) => {
     res.render('home');
 })
 
@@ -17,14 +18,36 @@ router.get('/register', (req, res) => {
     res.render('register');
 })
 
+router.post('/employee', async (req, res) => {
+    try {
+        let decoded = jwt.verify(req.body.data, 'secret');
+        const employee = await Employee.findOne({ _id: decoded._id });
+
+        res.send({
+            'firstName': employee.firstName,
+            'lastName': employee.lastName,
+            'email': employee.email
+        })
+    } catch (e) {
+        res.send({
+            'message': e.message
+        })
+    }  
+})
+
 // Create employee
 router.post('/register', async (req, res) => {
-    const employee = new Employee(req.body);
-
     try {
-        const token = await employee.generateAuthToken();
+        let employee = await Employee.findOne({ email: req.body.email });
+        
+        if (employee) {
+            throw new Error('User already exists with this email!')
+        } else {
+            employee = new Employee(req.body);
+            const token = await employee.generateAuthToken();
 
-        res.cookie('auth_token', token);
+            res.cookie('auth_token', token);
+        }
 
         res.send({
             'status': 'Success',
@@ -44,10 +67,13 @@ router.post('/login', async (req, res) => {
         const token = await employee.generateAuthToken();
 
         res.cookie('auth_token', token);
-        
+
         res.send({
             'status': 'Success',
-            'message': 'Employee is created!'
+            'message': 'Employee is created!',
+            fName: employee.firstName,
+            lName: employee.lastName,
+            email: employee.email
         })
     } catch (e) {
         res.send({

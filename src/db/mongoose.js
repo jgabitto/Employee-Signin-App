@@ -39,5 +39,5 @@ mongoose.connect(url, {
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    dbName: 'heroku_brtwtffk' || 'employee-sign-in'
+    dbName: 'heroku_brtwtffk'
 });

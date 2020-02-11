@@ -17,21 +17,19 @@
         <tbody>
             <tr id="firstRow" class="table-active">
                 <td class="col"><input id="date" class="form-control" name="date" type="date"></td class="col">
-                <td class="col-2"><input id="firstName" class="form-control" name="fName" type="text"></td>
-                <td class="col-2"><input id="lastName" class="form-control" name="lName" type="text"></td>
-                <td class="col-2"><input id="email" class="form-control " name="email" type="email"></td>
+                <td class="col-2"><input id="firstName" class="form-control" name="fName" type="text" readonly="readonly"></td>
+                <td class="col-2"><input id="lastName" class="form-control" name="lName" type="text" readonly="readonly"></td>
+                <td class="col-2"><input id="email" class="form-control " name="email" type="email" readonly="readonly"></td>
                 <td class="col" id="dateInI"><input id="dateIn" class="form-control" name="dateIn" type="date" autocomplete="off"></td>
                 <td class="col" id="dateOutI"><input id="dateOut" class="form-control" name="dateOut" type="date" autocomplete="off"></td>
                 <td class="col">
                     <div class="input-group">
                         <input id="timeIn" class="form-control" name="timeIn" type="time"  autocomplete="off" required>
-                        {{!-- <input id="timeInFirefox" class="form-control hideBtn" name="timeIn" type="time" readonly="readonly" autocomplete="off" required> --}}
                     </div>
                 </td>
                 <td class="col">
                     <div class="input-group">
                         <input id="timeOut" class="form-control" name="timeOut" type="time" autocomplete="off" required>
-                        {{!-- <input id="timeOutFirefox" class="form-control hideBtn" name="timeOut" type="time" readonly="readonly" autocomplete="off" required> --}}
                     </div>
                 </td>
                 <td class="col"><input id="hoursWorked" class="form-control" name="hoursWorked" type="text" readonly="readonly"></td>

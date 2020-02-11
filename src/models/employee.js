@@ -156,12 +156,6 @@ employeeSchema.methods.generateAuthToken = async function () {
 employeeSchema.statics.findByCredentials = async (email, password) => {
     const employee = await Employee.findOne({ email });
 
-    // function MyError(message){
-    //     this.message = message;
-    // }
-
-    // MyError.prototype = new Error();
-
     if (!employee) {
         throw new Error('Employee does not exist with specified email! Create an account.');
     }

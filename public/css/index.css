@@ -20,7 +20,7 @@
     background-color: rgb(50, 118, 177);
 } */
 
-#message {
+#message, #errorMessage {
     color: red;
 }
 
@@ -30,4 +30,8 @@
 
 #date, #dateIn, #dateOut {
     width: 185px;
+}
+
+#email {
+    width: 220px;
 }

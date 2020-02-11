@@ -31,9 +31,10 @@ signInForm.addEventListener('submit', async (e) => {
             headers: {'Content-Type': 'application/json'}
         });
         const json = await res.json();
-    
+
         if (json.status === 'Success') {
             window.location.href = '/home';
+
         } else {
             errorMessage.innerHTML = json.message;
         }

@@ -22,8 +22,6 @@ const resultsTimeOut = document.getElementById('8FF');
 const resultsHoursWorked = document.getElementById('9FF');
 const timeIn = document.getElementById('timeIn');
 const timeOut = document.getElementById('timeOut');
-const timeInFirefox = document.getElementById('timeInFirefox');
-const timeOutFirefox = document.getElementById('timeOutFirefox');
 const dateInH = document.getElementById('dateInH');
 const dateOutH = document.getElementById('dateOutH');
 const dateInI = document.getElementById('dateInI');
@@ -43,7 +41,33 @@ function checkBrowser() {
     }
 }
 
+async function addUser() {
+    let x = document.cookie.split('=');
+    const data = {
+        'data': x[1]
+    };
+    
+    try {
+        const res = await fetch('/employee', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {'Content-Type': 'application/json'}
+        })
+
+        const json = await res.json();
+
+        fName.value = json.firstName;
+        lName.value = json.lastName;
+        email.value = json.email;
+
+    } catch (e) {
+        console.log(e.message);
+    }
+}
+
 checkBrowser();
+
+addUser();
 
 logOutBtn.classList.remove('hideBtn');
 
@@ -64,11 +88,8 @@ editBtn.addEventListener('click', async (e) => {
     if (firstRow.classList.contains('hideBtn'))
         firstRow.classList.remove('hideBtn');
     
-    if (fName.readOnly) {
+    if (date.readOnly) {
         date.removeAttribute('readonly');
-        fName.removeAttribute('readonly');
-        lName.removeAttribute('readonly');
-        email.removeAttribute('readonly');
         timeIn.removeAttribute('readonly');
         timeOut.removeAttribute('readonly');
         submitBtn.classList.add('hideBtn');
@@ -83,9 +104,6 @@ editBtn.addEventListener('click', async (e) => {
         }
     } else {
         date.setAttribute('readonly', true);
-        fName.setAttribute('readonly', true);
-        lName.setAttribute('readonly', true);
-        email.setAttribute('readonly', true);
         timeIn.setAttribute('readonly', true);
         timeOut.setAttribute('readonly', true);
         submitBtn.classList.remove('hideBtn');

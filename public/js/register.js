@@ -11,13 +11,9 @@ registerForm.addEventListener('submit', async (e) => {
         'firstName': formData.get('firstName'),
         'lastName': formData.get('lastName'),
         'email': formData.get('email'),
-        'password': formData.get('password')
+        'password': formData.get('password'),
+        'verifyPassword': formData.get('verifyPassword')
     };
-
-    let myHeaders = new Headers({
-        'Content-Type': 'application/json',
-        'authorization': 'Bearer '
-    });
 
     // fetch('/login', {
     //     method: 'POST',
@@ -32,25 +28,29 @@ registerForm.addEventListener('submit', async (e) => {
     // })
 
     try {
+        console.log(data.password, data.verifyPassword);
+        
+        if (data.password !== data.verifyPassword) {
+           throw new Error('Passwords do not match');
+        }
+
         const res = await fetch('/register', {
             method: 'POST',
             body: JSON.stringify(data),
-            // headers: 
-            // {
-            //     'Content-Type': 'application/json'
-            // }
-            headers: myHeaders
+            headers: {'Content-Type': 'application/json'}
         });
         const json = await res.json();
     
         if (json.status === 'Success') {
             window.location.href = '/home';
         } else {
+            
             errorMessage.innerHTML = json.message;
         }
 
     } catch (e) {
-        errorMessage.innerHTML = e;
+        console.log(e);
+        errorMessage.innerHTML = e.message;
     }
     
 })
