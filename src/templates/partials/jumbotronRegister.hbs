@@ -1,27 +1,39 @@
 <div class="d-flex justify-content-center jumbotron" id="jumbotron">
-    <form id="registerForm">
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input name="firstName" type="text" class="form-control" id="firstName" aria-describedby="emailHelp" required>
+    <div class="container">
+        <div id="labelRegister">
+        <p class="lead">Fill out the information below to get registered!</p>
+        <hr class="my-4">
         </div>
-        <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input name="lastName" type="text" class="form-control" id="lastName" aria-describedby="emailHelp" required>
+        
+
+    <div class="row justify-content-center">
+
+    
+        <form id="registerForm" class="">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input name="firstName" type="text" class="form-control" id="firstName" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input name="lastName" type="text" class="form-control" id="lastName" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInput">Email</label>
+                <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="password" type="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Verify Password</label>
+                <input name="verifyPassword" type="password" class="form-control" id="verifyPassword" required>
+            </div>
+            <div id="errorMessage"></div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <div id="errorMessage"></div>
+        </form>
         </div>
-        <div class="form-group">
-            <label for="exampleInput">Email</label>
-            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input name="password" type="password" class="form-control" id="password" required>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Verify Password</label>
-            <input name="verifyPassword" type="password" class="form-control" id="verifyPassword" required>
-        </div>
-        <div id="errorMessage"></div>
-        <button type="submit" class="btn btn-primary">Register</button>
-        <div id="errorMessage"></div>
-    </form>
+    </div>
 </div>

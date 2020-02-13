@@ -98,18 +98,18 @@ const validator = require('validator');
 const employeeSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a first name.'],
         trim: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a last name.'],
         trim: true
     },
     email: {
         type: String,
         unique: true,
-        required: true,
+        required: [true, 'Please enter an email.'],
         trim: true,
         lowercase: true,
         validate(value) {
@@ -120,7 +120,7 @@ const employeeSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a password'],
         trim: true,
         minlength: 7
     },

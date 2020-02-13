@@ -1,7 +1,11 @@
+body {
+    background-color: #fcfaf1;
+}
+
 .jumbotron {
-    margin-top: 50px;
-    margin-right: 300px;
-    margin-left: 300px;
+    margin: 50px 300px;
+    background-color: #244069;
+    color: #fcfaf1;
 }
 
 .hideBtn {
@@ -11,14 +15,6 @@
 .unhideBtn {
     display: inline;
 }
-
-/* .input-group-append .day:hover {
-    background-color: rgb(240, 173, 78);
-}
-
-.input-group-append .night:hover {
-    background-color: rgb(50, 118, 177);
-} */
 
 #message, #errorMessage {
     color: red;
@@ -35,3 +31,18 @@
 #email {
     width: 220px;
 }
+
+#hoursWorked {
+    width: 65px;
+}
+
+#nav {
+    background-color: #ff2863;
+    
+}
+
+#labelRegister {
+    text-align: center;
+}
+
+

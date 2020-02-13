@@ -1,7 +1,6 @@
 const registerForm = document.getElementById('registerForm');
 const errorMessage = document.getElementById('errorMessage');
 
-
 registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -27,9 +26,7 @@ registerForm.addEventListener('submit', async (e) => {
     //     console.log('Goodbye');
     // })
 
-    try {
-        console.log(data.password, data.verifyPassword);
-        
+    try {        
         if (data.password !== data.verifyPassword) {
            throw new Error('Passwords do not match');
         }
@@ -49,7 +46,6 @@ registerForm.addEventListener('submit', async (e) => {
         }
 
     } catch (e) {
-        console.log(e);
         errorMessage.innerHTML = e.message;
     }
     

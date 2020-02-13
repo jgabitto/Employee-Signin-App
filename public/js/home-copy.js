@@ -1,4 +1,7 @@
 const registerForm = document.getElementById('registerForm');
+const indexBtn = document.getElementById('index');
+const aboutBtn = document.getElementById('about');
+const registerBtn = document.getElementById('register');
 const navbar = document.getElementById('nav');
 const date = document.getElementById('date');
 const fName = document.getElementById("firstName");
@@ -35,9 +38,9 @@ function checkBrowser() {
     let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
 
     if (firefoxAgent) {
-        navbar.style.width = "1490.0px";
+        navbar.style.width = "1614.12px";
     } else {
-        navbar.style.width = "1540.68px";
+        navbar.style.width = "1620.0px";
     }
 }
 
@@ -69,17 +72,26 @@ checkBrowser();
 
 addUser();
 
+indexBtn.href = "/home";
+aboutBtn.classList.add('hideBtn');
+registerBtn.classList.add('hideBtn');
 logOutBtn.classList.remove('hideBtn');
 
 // Edit button
 editBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    // // Get the user-agent string 
-    // let userAgentString = navigator.userAgent;
+    // Get the user-agent string 
+    let userAgentString = navigator.userAgent;
     
-    // // Detect Firefox 
-    // let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
+    // Detect Firefox 
+    let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
+
+    if (firefoxAgent) {
+        navbar.style.width = "1614.12px";
+    } else {
+        navbar.style.width = "1620.0px";
+    }
 
     submitBtn.classList.remove('hideBtn');
     secondRow.classList.add('hideBtn');
@@ -148,7 +160,7 @@ submitBtn.addEventListener('click', async (e) => {
         const timeOutSplit = calculateTime(timeOut);
 
         data = {
-            'date': formData.get('dateIn'),
+            'date': formData.get('date'),
             'firstName': formData.get('fName'),
             'lastName': formData.get('lName'),
             'email': formData.get('email'),

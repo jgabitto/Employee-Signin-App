@@ -7,17 +7,102 @@ const Record = require('../models/record');
 const router = new express.Router();
 
 router.get('/', (req, res) => {
-    res.render('index');
+    try {
+        const token = req.cookies['auth_token'];
+        let decoded;
+        
+        if (token) {
+            decoded = jwt.verify(token, 'secret');
+        }
+
+        if (decoded) {
+            res.redirect('home');
+        } else {
+            res.render('index');
+        }
+    } catch (e) {
+        res.send(e.message);
+    }
 })
 
-router.get('/home', async (req, res) => {
-    res.render('home');
+router.get('/about', (req, res) => {
+    try {
+        const token = req.cookies['auth_token'];
+        let decoded;
+
+        if (token) {
+            decoded = jwt.verify(token, 'secret');
+        }
+
+        if (decoded) {
+            res.redirect('home');
+        } else {
+            res.render('about');
+        }
+    } catch (e) {
+        res.send('There was an error getting the page.')
+    }
+    
+})
+
+router.get('/home', (req, res) => {
+    try {
+        const token = req.cookies['auth_token'];
+        let decoded;
+
+        if (token) {
+            decoded = jwt.verify(token, 'secret');
+        }
+
+        if (decoded) {
+            res.render('home');
+        } else {
+            res.redirect('index');
+        }
+    } catch (e) {
+        res.send('There was an error getting the page.')
+    }
 })
 
 router.get('/register', (req, res) => {
-    res.render('register');
+    try {
+        const token = req.cookies['auth_token'];
+        let decoded;
+
+        if (token) {
+            decoded = jwt.verify(token, 'secret');
+        }
+
+        if (decoded) {
+            res.redirect('home');
+        } else {
+            res.render('register');
+        }
+    } catch (e) {
+        res.send('There was an error getting the page.');
+    }
 })
 
+router.get('*', (req, res) => {
+    try {
+        const token = req.cookies['auth_token'];
+        let decoded;
+
+        if (token) {
+            decoded = jwt.verify(token, 'secret');
+        }
+
+        if (decoded) {
+            res.redirect('home');
+        } else {
+            res.render('404');
+        }
+    } catch (e) {
+        res.send('There was an error getting the page.');
+    }
+})
+
+// Display user's first name, last name, and email on home page
 router.post('/employee', async (req, res) => {
     try {
         let decoded = jwt.verify(req.body.data, 'secret');
@@ -70,10 +155,7 @@ router.post('/login', async (req, res) => {
 
         res.send({
             'status': 'Success',
-            'message': 'Employee is created!',
-            fName: employee.firstName,
-            lName: employee.lastName,
-            email: employee.email
+            'message': 'Employee is created!'
         })
     } catch (e) {
         res.send({
@@ -124,6 +206,5 @@ router.post('/record', async (req, res) => {
         })
     }
 })
-
 
 module.exports = router;

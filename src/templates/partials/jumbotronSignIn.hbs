@@ -1,14 +1,20 @@
-<div class="d-flex justify-content-center jumbotron" id="jumbotron">
-    <form id="signInForm">
-        <div class="form-group">
-            <label for="exampleInput">Email</label>
-            <input name="email" type="email" class="form-control" id="exampleInput" aria-describedby="emailHelp">
-        </div>
+<div id="jumbotronSignIn" class="d-flex justify-content-center jumbotron" id="jumbotron">
+    <div class="container">
+        <h1 class="display-4"><i class="fas fa-business-time"></i> Welcome to Employee Sign-in App!</h1>
+        <p class="lead">Create an account or sign in below to start recording employee timesheets!</p>
+        <hr class="my-4">
+        
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="exampleInput">Email</label>
+                <input name="email" type="email" class="form-control" id="exampleInput" aria-describedby="emailHelp">
+            </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input name="password" type="password" class="form-control" id="exampleInputPassword1">
         </div>
         <div id="errorMessage"></div>
         <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+        </form>
+    </div>
 </div>

@@ -73,22 +73,22 @@ const validator = require('validator');
 const recordSchema = new mongoose.Schema({
     date: {
         type: Date,
-        required: true,
+        required: [true, 'Please enter a date.'],
         trim: true
     },
     firstName: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a first name'],
         trim: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a last name'],
         trim: true
     },
     email: {
         type: String,
-        required: true,
+        required: [true, 'Please enter an email'],
         trim: true,
         lowercase: true,
         validate(value) {
@@ -99,17 +99,17 @@ const recordSchema = new mongoose.Schema({
     },
     dateIn: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a date in.'],
         trim: true
     },
     timeIn: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a time in.'],
         trim: true
     },
     timeOut: {
         type: String,
-        required: true,
+        required: [true, 'Please enter a time out.'],
         trim: true
     },
     hoursWorked: {

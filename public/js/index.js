@@ -1,6 +1,7 @@
 const signInForm = document.getElementById('signInForm');
 const errorMessage = document.getElementById('errorMessage');
-
+const aboutBtn = document.getElementById('about');
+const registerBtn = document.getElementById('register');
 
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
