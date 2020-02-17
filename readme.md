@@ -24,7 +24,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Jorge Gabitto** - [PurpleBooth](https://github.com/jgabitto)
+* **Jorge Gabitto** - [Github](https://github.com/jgabitto)
 
 ## License
 
