@@ -5,6 +5,7 @@ const Employee = require('../models/employee');
 const Record = require('../models/record');
 
 const router = new express.Router();
+const secret = process.env.JWT_SECRET
 
 router.get('/', (req, res) => {
     try {
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
         let decoded;
         
         if (token) {
-            decoded = jwt.verify(token, 'secret');
+            decoded = jwt.verify(token, secret);
         }
 
         if (decoded) {
@@ -31,7 +32,7 @@ router.get('/about', (req, res) => {
         let decoded;
 
         if (token) {
-            decoded = jwt.verify(token, 'secret');
+            decoded = jwt.verify(token, secret);
         }
 
         if (decoded) {
@@ -51,7 +52,7 @@ router.get('/home', (req, res) => {
         let decoded;
 
         if (token) {
-            decoded = jwt.verify(token, 'secret');
+            decoded = jwt.verify(token, secret);
         }
 
         if (decoded) {
@@ -70,7 +71,7 @@ router.get('/register', (req, res) => {
         let decoded;
 
         if (token) {
-            decoded = jwt.verify(token, 'secret');
+            decoded = jwt.verify(token, secret);
         }
 
         if (decoded) {
@@ -89,7 +90,7 @@ router.get('*', (req, res) => {
         let decoded;
 
         if (token) {
-            decoded = jwt.verify(token, 'secret');
+            decoded = jwt.verify(token, secret);
         }
 
         if (decoded) {
@@ -105,7 +106,7 @@ router.get('*', (req, res) => {
 // Display user's first name, last name, and email on home page
 router.post('/employee', async (req, res) => {
     try {
-        let decoded = jwt.verify(req.body.data, 'secret');
+        let decoded = jwt.verify(req.body.data, secret);
         const employee = await Employee.findOne({ _id: decoded._id });
 
         res.send({
