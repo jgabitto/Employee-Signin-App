@@ -3,7 +3,8 @@ body {
 }
 
 .jumbotron {
-    margin: 50px 300px;
+    margin: 50px auto;
+    max-width: 650px;
     background-color: #244069;
     color: #fcfaf1;
 }
