@@ -31,8 +31,7 @@
 // };
 
 const mongoose = require('mongoose');
-let mLabUrl = process.env.MONGODB_URI;
-let url = mLabUrl || 'mongodb://127.0.0.1:27017/employee-sign-in';
+let url = process.env.MONGODB_URL;
 
 mongoose.connect(url, {
     useNewUrlParser: true,
