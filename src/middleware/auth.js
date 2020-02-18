@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const Employee = require('../models/employee');
 
+const secret = process.env.JWT_SECRET;
+
 const auth = async (req, res, next) => {
     try {
         
@@ -9,7 +11,7 @@ const auth = async (req, res, next) => {
         const token = req.cookies['auth_token'];
         // Ensure the token is actually valid, created by our server, and 
         // not expired by creating a decoded payload        
-        const decoded = jwt.verify(token, 'secret');
+        const decoded = jwt.verify(token, secret);
         // Find user by looking for _id in the decoded payload decoded._id
         // and the token in the tokens array
         const employee = await Employee.findOne({ _id: decoded._id, 'tokens.token': token });

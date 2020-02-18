@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const userRouter = require('../src/routers/employee');
 require('./db/mongoose');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 const app = express();
 

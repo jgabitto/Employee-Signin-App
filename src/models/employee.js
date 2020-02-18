@@ -95,6 +95,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
 
+const secret = process.env.JWT_SECRET;
+
 const employeeSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -145,7 +147,7 @@ employeeSchema.pre('save', async function (next) {
 employeeSchema.methods.generateAuthToken = async function () {
     const employee = this;
     // Create token
-    const token = jwt.sign({ _id: employee._id.toString() }, 'secret');
+    const token = jwt.sign({ _id: employee._id.toString() }, secret);
     // Add token to user.tokens array
     employee.tokens = employee.tokens.concat({ token });
     await employee.save();
