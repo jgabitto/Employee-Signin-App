@@ -37,6 +37,5 @@ mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false,
-    dbName: 'heroku_brtwtffk'
+    useFindAndModify: false
 });
