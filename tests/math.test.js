@@ -10,15 +10,15 @@ const { calculateTip, farenheightToCelsius, celsiustoFarenheit, add } = require(
 //     expect(total).toBe(12.5);
 // })
 
-test('Should convert farenheit to celsius', () => {
-    const total = farenheightToCelsius(32);
-    expect(total).toBe(0);
-})
+// test('Should convert farenheit to celsius', () => {
+//     const total = farenheightToCelsius(32);
+//     expect(total).toBe(0);
+// })
 
-test('Should convert celsius to farenheit', () => {
-    const total = celsiustoFarenheit(0);
-    expect(total).toBe(32);
-})
+// test('Should convert celsius to farenheit', () => {
+//     const total = celsiustoFarenheit(0);
+//     expect(total).toBe(32);
+// })
 
 // test('Async test demo', (done) => {
 //     setTimeout(() => {
@@ -27,14 +27,14 @@ test('Should convert celsius to farenheit', () => {
 //     }, 2000);    
 // })
 
-test('Should add two numbers', (done) => {
-    add(2, 3).then((sum) => {
-        expect(sum).toBe(5);
-        done();
-    });
-})
+// test('Should add two numbers', (done) => {
+//     add(2, 3).then((sum) => {
+//         expect(sum).toBe(5);
+//         done();
+//     });
+// })
 
-test('Should add two numbers async/await', async () => {
-    const sum = await add(11, 22)
-    expect(sum).toBe(32);
-})
+// test('Should add two numbers async/await', async () => {
+//     const sum = await add(11, 22)
+//     expect(sum).toBe(32);
+// })
