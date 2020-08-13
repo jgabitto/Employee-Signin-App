@@ -71,6 +71,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const recordSchema = new mongoose.Schema({
+    employee: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
     date: {
         type: Date,
         required: [true, 'Please enter a date.'],

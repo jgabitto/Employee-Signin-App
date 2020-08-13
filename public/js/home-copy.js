@@ -134,11 +134,8 @@ editBtn.addEventListener('click', async (e) => {
 submitBtn.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    // // Get the user-agent string 
-    // let userAgentString = navigator.userAgent;
-    
-    // // Detect Firefox 
-    // let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
+    let x = document.cookie.split('=');
+    // x = x[1].split('.');
 
     if (!fName.readOnly) {
         date.setAttribute('readonly', true);
@@ -160,6 +157,7 @@ submitBtn.addEventListener('click', async (e) => {
         const timeOutSplit = calculateTime(timeOut);
 
         data = {
+            'cookie': x,
             'date': formData.get('date'),
             'firstName': formData.get('fName'),
             'lastName': formData.get('lName'),

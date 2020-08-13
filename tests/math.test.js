@@ -34,7 +34,7 @@ const { calculateTip, farenheightToCelsius, celsiustoFarenheit, add } = require(
 //     });
 // })
 
-// test('Should add two numbers async/await', async () => {
-//     const sum = await add(11, 22)
-//     expect(sum).toBe(32);
-// })
+test('Should add two numbers async/await', async () => {
+    const sum = await add(11, 22)
+    expect(sum).toBe(33);
+})

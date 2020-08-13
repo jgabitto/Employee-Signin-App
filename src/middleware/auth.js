@@ -6,8 +6,7 @@ const secret = process.env.JWT_SECRET;
 const auth = async (req, res, next) => {
     try {
         
-        // Replace 'Bearer ' with '' to get just the token
-        // const token = req.header('Authorization').replace('Bearer ', '');
+        // Set cookie constant with token stored in cookie
         const token = req.cookies['auth_token'];
         // Ensure the token is actually valid, created by our server, and 
         // not expired by creating a decoded payload        
